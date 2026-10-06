@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Networking Lab Project Report</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/league.min.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+    <style>
+        .reveal h1 { font-size: 2.2em; }
+        .reveal h2 { font-size: 1.6em; }
+        .reveal li { margin-bottom: 15px; font-size: 0.9em; }
+        .reveal p { font-size: 0.9em; }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Slide 1 -->
+        <section>
+          <h1>Networking Lab Project</h1>
+          <p>A Comprehensive Analysis of Enterprise Network Architectures</p>
+          <br/>
+          <p style="font-size: 0.8em; color: #ddd;">Experiment 6: Smart Office Network Challenge<br/>
+             Experiment 7: Bank ATM Network Simulation</p>
+        </section>
+
+        <!-- Slide 2 -->
+        <section>
+          <h2>Project Overview</h2>
+          <p>Demonstration of critical Layer 2 and Layer 3 networking protocols.</p>
+          <ul style="text-align: left;">
+            <li><strong>Experiment 6: Smart Office Network</strong>
+              <ul><li>VLAN segmentation, ROAS, NAT, and Zero-Trust ACLs.</li></ul>
+            </li>
+            <br/>
+            <li><strong>Experiment 7: Bank ATM Network</strong>
+              <ul><li>Highly available WAN, redundant topology, and OSPF dynamic routing.</li></ul>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Slide 3 -->
+        <section>
+          <h2>Exp 6: Smart Office Scenario</h2>
+          <p><strong>Aim:</strong> Design and secure a multi-department corporate network.</p>
+          <ul style="text-align: left;">
+            <li><strong>Departments:</strong> HR, Accounts, Developers, Testing, Server Room.</li>
+            <li><strong>Access Policy:</strong> Only Developers can access the Server Room.</li>
+            <li><strong>Privacy:</strong> HR data is isolated, restricted to outbound internet only.</li>
+            <li><strong>Global Connectivity:</strong> Outbound internet access via NAT Overload.</li>
+          </ul>
+        </section>
+
+        <!-- Slide 4 -->
+        <section>
+          <h2>Exp 6: Network Architecture</h2>
+          <ul style="text-align: left;">
+            <li><strong>VLANs (Virtual LANs):</strong> Logical broadcast containment.</li>
+            <li><strong>802.1Q Trunking & ROAS:</strong> Efficient inter-VLAN routing without multiple physical interfaces.</li>
+            <li><strong>NAT Overload (PAT):</strong> Maps internal private subnets to a public IP.</li>
+            <li><strong>Extended ACLs:</strong> Strict internal firewall filtering based on Source/Dest IP & Protocol.</li>
+          </ul>
+        </section>
+
+        <!-- Slide 5 -->
+        <section>
+          <h2>Exp 6: Testing & Results</h2>
+          <ul style="text-align: left;">
+            <li><strong>Internet Connectivity:</strong> Successful pings to Google Server (8.8.8.8).</li>
+            <li><strong>Security Validation:</strong> Unauthorized pings (HR/Accounts &rarr; Server) successfully blocked by router firewall ("Destination host unreachable").</li>
+            <li><strong>Authorized Access:</strong> Developer PC successfully connected to Server Room.</li>
+            <li><strong>Result:</strong> Zero-trust policies completely fulfilled.</li>
+          </ul>
+        </section>
+
+        <!-- Slide 6 -->
+        <section>
+          <h2>Exp 7: Bank ATM Network</h2>
+          <p><strong>Aim:</strong> Simulate a highly available, multi-city ATM WAN.</p>
+          <ul style="text-align: left;">
+            <li><strong>Locations:</strong> Connect critical ATM servers in Patna, Delhi, and Mumbai.</li>
+            <li><strong>Requirement:</strong> Extreme fault tolerance and high availability.</li>
+            <li><strong>Resilience:</strong> Automatic rerouting during catastrophic physical link failures (e.g., severed underground fiber).</li>
+          </ul>
+        </section>
+
+        <!-- Slide 7 -->
+        <section>
+          <h2>Exp 7: High Availability Design</h2>
+          <ul style="text-align: left;">
+            <li><strong>Topology:</strong> Redundant 3-city triangular WAN core.</li>
+            <li><strong>Protocol:</strong> OSPF (Open Shortest Path First) Link-State Routing.</li>
+            <li><strong>Mechanism:</strong> Dijkstra's SPF Algorithm dynamically calculates absolute shortest paths.</li>
+            <li><strong>Backbone Area 0:</strong> Facilitates rapid sharing of Link State Advertisements (LSAs).</li>
+          </ul>
+        </section>
+
+        <!-- Slide 8 -->
+        <section>
+          <h2>Exp 7: Failover Simulation</h2>
+          <ul style="text-align: left;">
+            <li><strong>Convergence Verified:</strong> OSPF neighbors successfully established 'FULL' adjacency states.</li>
+            <li><strong>Failure Simulated:</strong> Direct Delhi-Mumbai WAN link intentionally severed.</li>
+            <li><strong>Automatic Failover:</strong> <code>tracert</code> utility confirmed immediate, dynamic rerouting through the Patna branch.</li>
+            <li><strong>Result:</strong> Zero downtime ATM transaction connectivity maintained.</li>
+          </ul>
+        </section>
+
+        <!-- Slide 9 -->
+        <section>
+          <h2>Conclusion & Learning Outcomes</h2>
+          <ul style="text-align: left;">
+            <li>Demonstrated mastery of <strong>Layer 2 VLANs</strong> and <strong>Layer 3 Routing</strong>.</li>
+            <li>Proven application of <strong>NAT</strong> and <strong>Extended ACLs</strong> for strict cybersecurity.</li>
+            <li>Advanced understanding of redundant <strong>Enterprise WAN design</strong>.</li>
+            <li>Real-time implementation of <strong>OSPF fault-tolerance</strong> in mission-critical systems.</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        transition: 'slide'
+      });
+    </script>
+  </body>
+</html>

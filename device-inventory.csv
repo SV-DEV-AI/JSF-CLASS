@@ -1,0 +1,11 @@
+Device Name,Device Type,Model,Location,Purpose,Interfaces Used,IP Address,Status
+R1,Router,2911 or 4331,Patna,Regional Gateway,Gig0/0; Se0/0/0; Se0/0/1,10.10.1.1; 10.0.12.1; 10.0.13.1,PLANNED
+R2,Router,2911 or 4331,Delhi,Core Gateway,Gig0/0; Se0/0/0; Se0/0/1,10.10.2.1; 10.0.12.2; 10.0.23.1,PLANNED
+R3,Router,2911 or 4331,Mumbai,Regional Gateway,Gig0/0; Se0/0/0; Se0/0/1,10.10.3.1; 10.0.13.2; 10.0.23.2,PLANNED
+SW1,Switch,2960,Patna,Access Switch,Gig0/1; Fa0/1,N/A,PLANNED
+SW2,Switch,2960,Delhi,Access Switch,Gig0/1; Fa0/1; Fa0/2,N/A,PLANNED
+SW3,Switch,2960,Mumbai,Access Switch,Gig0/1; Fa0/1,N/A,PLANNED
+ATM-Patna,PC,Generic,Patna,ATM Terminal,Fa0,10.10.1.10,PLANNED
+ATM-Delhi,PC,Generic,Delhi,ATM Terminal,Fa0,10.10.2.20,PLANNED
+ATM-Mumbai,PC,Generic,Mumbai,ATM Terminal,Fa0,10.10.3.10,PLANNED
+ATM-Server,Server,Generic,Delhi,Banking Server,Fa0,10.10.2.10,PLANNED

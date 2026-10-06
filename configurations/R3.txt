@@ -1,0 +1,44 @@
+! R3 Configuration (Mumbai)
+! Expected Interfaces: Gig0/0 (LAN), Se0/3/0 (to R1), Se0/3/1 (to R2)
+
+enable
+configure terminal
+hostname R3
+
+! LAN Interface
+interface GigabitEthernet0/0
+ description Connection to Mumbai LAN
+ ip address 10.10.3.1 255.255.255.0
+ no shutdown
+ exit
+
+! WAN Interface to R1 (Patna)
+interface Serial0/3/0
+ description Link to R1-Patna
+ ip address 10.0.13.2 255.255.255.252
+ clock rate 64000
+ no shutdown
+ exit
+
+! WAN Interface to R2 (Delhi)
+interface Serial0/3/1
+ description Link to R2-Delhi
+ ip address 10.0.23.2 255.255.255.252
+ no shutdown
+ exit
+
+! OSPF Configuration
+router ospf 1
+ router-id 3.3.3.3
+ ! Advertise LAN
+ network 10.10.3.0 0.0.0.255 area 0
+ ! Advertise WAN to R1
+ network 10.0.13.0 0.0.0.3 area 0
+ ! Advertise WAN to R2
+ network 10.0.23.0 0.0.0.3 area 0
+ ! Security/Efficiency: Do not send hello packets to LAN
+ passive-interface GigabitEthernet0/0
+ exit
+
+end
+write memory

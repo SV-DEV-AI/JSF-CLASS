@@ -1,0 +1,14 @@
+Device/PC,Location,Interface,IP Address,Subnet Mask,Default Gateway,Purpose,OSPF Network,Status
+R1,Patna,Gig0/0 (LAN),10.10.1.1,255.255.255.0,N/A,Patna Gateway,10.10.1.0 0.0.0.255,PLANNED
+R1,Patna,Se0/0/0 (to R2),10.0.12.1,255.255.255.252,N/A,WAN to Delhi,10.0.12.0 0.0.0.3,PLANNED
+R1,Patna,Se0/0/1 (to R3),10.0.13.1,255.255.255.252,N/A,WAN to Mumbai,10.0.13.0 0.0.0.3,PLANNED
+R2,Delhi,Gig0/0 (LAN),10.10.2.1,255.255.255.0,N/A,Delhi Gateway,10.10.2.0 0.0.0.255,PLANNED
+R2,Delhi,Se0/0/0 (to R1),10.0.12.2,255.255.255.252,N/A,WAN to Patna,10.0.12.0 0.0.0.3,PLANNED
+R2,Delhi,Se0/0/1 (to R3),10.0.23.1,255.255.255.252,N/A,WAN to Mumbai,10.0.23.0 0.0.0.3,PLANNED
+R3,Mumbai,Gig0/0 (LAN),10.10.3.1,255.255.255.0,N/A,Mumbai Gateway,10.10.3.0 0.0.0.255,PLANNED
+R3,Mumbai,Se0/0/0 (to R1),10.0.13.2,255.255.255.252,N/A,WAN to Patna,10.0.13.0 0.0.0.3,PLANNED
+R3,Mumbai,Se0/0/1 (to R2),10.0.23.2,255.255.255.252,N/A,WAN to Delhi,10.0.23.0 0.0.0.3,PLANNED
+ATM-Patna,Patna,FastEthernet0,10.10.1.10,255.255.255.0,10.10.1.1,End Device,N/A,PLANNED
+ATM-Delhi,Delhi,FastEthernet0,10.10.2.20,255.255.255.0,10.10.2.1,End Device,N/A,PLANNED
+ATM-Mumbai,Mumbai,FastEthernet0,10.10.3.10,255.255.255.0,10.10.3.1,End Device,N/A,PLANNED
+ATM-Server,Delhi,FastEthernet0,10.10.2.10,255.255.255.0,10.10.2.1,Core Server,N/A,PLANNED
